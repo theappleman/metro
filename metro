@@ -91,10 +91,6 @@ def initSettings(configfile,args,extraargs={}):
 
 
 def main():
-	if os.getuid() != 0:
-		print __app__ + ": This script requires root privileges to operate."
-		sys.exit(2)
-
 	# we need some options in order to work correctly
 	if len(sys.argv) < 2:
 		usage()
@@ -186,6 +182,11 @@ def main():
 	if valueme:
 		print settings[valueme]
 		sys.exit(1)
+
+	if os.getuid() != 0:
+		print __app__ + ": This script requires root privileges to operate."
+		sys.exit(2)
+
 	if settings.has_key("multi") and settings["multi"]=="yes":
 		targetlist=string.split(settings["multi/targets"])
 		# build automation mode
