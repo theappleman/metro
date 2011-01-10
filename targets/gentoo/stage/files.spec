@@ -11,8 +11,6 @@ CFLAGS="$[portage/CFLAGS:zap]"
 CXXFLAGS="$[portage/CXXFLAGS:zap]"
 LDFLAGS="$[portage/LDFLAGS:zap]"
 USE="$[portage/USE:zap]"
-VIDEO_CARDS="$[portage/VIDEO_CARDS:zap]"
-INPUT_DEVICES="$[portage/INPUT_DEVICES:zap]"
 ]
 
 locale.gen: [
