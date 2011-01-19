@@ -27,7 +27,7 @@ name: stage5-$[target/subarch]-$[:version]
 chroot/run: [
 #!/bin/bash
 $[[steps/setup]]
-USE=-dynamic emerge $eopts cryptsetup || exit 1
+USE=static-libs emerge $eopts cryptsetup || exit 1
 echo > /etc/fstab || exit 1
 genkernel $[genkernel/opts:lax] all || exit 1
 sed -i -e '/^c/s!agetty 38400!mingetty --autologin root --noclear!' \
